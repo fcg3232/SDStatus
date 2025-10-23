@@ -1,0 +1,59 @@
+name: Incident Resolution
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  notify-resolution:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'incident')
+    steps:
+      - name: Send Slack resolution notification
+        if: env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          TITLE="${{ github.event.issue.title }}"
+          URL="${{ github.event.issue.html_url }}"
+          CLOSED_BY="${{ github.event.issue.closed_by.login }}"
+
+          # Determine environment
+          if [[ "$TITLE" == *"(Prod)"* ]]; then
+            ENV="🟢 PRODUCTION"
+            COLOR="good"
+          else
+            ENV="🟢 DEVELOPMENT"
+            COLOR="good"
+          fi
+
+          # Send to Slack
+          curl -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -d "{
+              \"attachments\": [{
+                \"color\": \"$COLOR\",
+                \"title\": \"✅ Service Restored\",
+                \"text\": \"$ENV\n\n*$TITLE*\",
+                \"fields\": [{
+                  \"title\": \"Status\",
+                  \"value\": \"RESOLVED\",
+                  \"short\": true
+                }, {
+                  \"title\": \"Resolved\",
+                  \"value\": \"$(date -u +%Y-%m-%d\ %H:%M\ UTC)\",
+                  \"short\": true
+                }, {
+                  \"title\": \"Closed By\",
+                  \"value\": \"$CLOSED_BY\",
+                  \"short\": true
+                }],
+                \"actions\": [{
+                  \"type\": \"button\",
+                  \"text\": \"View Issue\",
+                  \"url\": \"$URL\"
+                }],
+                \"footer\": \"SecondaryDAO Status Monitor\",
+                \"ts\": $(date +%s)
+              }]
+            }"
