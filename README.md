@@ -5,13 +5,15 @@ Zero-cost uptime monitoring powered by GitHub Actions and Upptime.
 ## Services Monitored
 
 ### Production (naked domains)
+
 - admin.secondarydao.com
 - app.secondarydao.com
 - api.secondarydao.com/health
 - rent.secondarydao.com
 - explorer.secondarydao.com
 
-### Development (test* domains)
+### Development (test\* domains)
+
 - testadmin.secondarydao.com
 - testapp.secondarydao.com
 - testapi.secondarydao.com/health
@@ -81,6 +83,7 @@ TTL: 3600
 ### 5. Wait for First Run
 
 GitHub Actions will:
+
 - Run every 5 minutes to check all services
 - Generate status page at https://status.secondarydao.com
 - Create issues for outages
@@ -97,6 +100,7 @@ GitHub Actions will:
 ## Next Steps
 
 Once SDStatus is live:
+
 1. Create "SD Master Operations" GitHub Project
 2. Integrate Claude error digest to create GitHub issues
 3. Add auto-close script for resolved errors
