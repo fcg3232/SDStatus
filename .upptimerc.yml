@@ -1,36 +1,44 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+owner: fcg3232
+repo: SDStatus
 
+# Monitors (5-minute checks by default)
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
-  - name: IPv6 test
-    url: forwardemail.net
-    port: 80
-    check: "tcp-ping"
-    ipv6: true
+  # PRODUCTION (naked domains)
+  - name: Admin (Prod)
+    url: https://admin.secondarydao.com
+  - name: App (Prod)
+    url: https://app.secondarydao.com
+  - name: API (Prod)
+    url: https://api.secondarydao.com/health
+  - name: Rent (Prod)
+    url: https://rent.secondarydao.com
+  - name: Explorer (Prod)
+    url: https://explorer.secondarydao.com
+
+  # DEVELOPMENT (test* domains)
+  - name: Admin (Dev)
+    url: https://testadmin.secondarydao.com
+  - name: App (Dev)
+    url: https://testapp.secondarydao.com
+  - name: API (Dev)
+    url: https://testapi.secondarydao.com/health
+  - name: Rent (Dev)
+    url: https://testrent.secondarydao.com
+  - name: Explorer (Dev)
+    url: https://testexplorer.secondarydao.com
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.secondarydao.com
+  name: SecondaryDAO Status
+  introTitle: Live Service Monitoring
+  introMessage: >
+    Freedman Capital Group • El Salvador • All production and test environments tracked here.
+    Production = naked domains; Development = test*. Checks run every 5 minutes via GitHub Actions.
+  theme: dark
   navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+    - title: Home
+      href: https://secondarydao.com
+    - title: App
+      href: https://app.secondarydao.com
+    - title: Docs
+      href: https://docs.secondarydao.com

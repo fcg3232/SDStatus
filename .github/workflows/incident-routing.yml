@@ -1,0 +1,61 @@
+name: Incident Routing
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  route-incident:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.title, 'is down')
+    steps:
+      - name: Label and route incident
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const title = context.payload.issue.title;
+            const labels = ['incident', 'uptime'];
+
+            // Add environment label
+            if (title.includes('(Prod)')) {
+              labels.push('production');
+            } else if (title.includes('(Dev)')) {
+              labels.push('development');
+            }
+
+            // Add service label
+            if (title.includes('Admin')) labels.push('admin');
+            if (title.includes('App')) labels.push('app');
+            if (title.includes('API')) labels.push('api');
+            if (title.includes('Rent')) labels.push('rent');
+            if (title.includes('Explorer')) labels.push('explorer');
+
+            // Apply labels
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              labels: labels
+            });
+
+            // Add to project (SD Master Operations)
+            // Note: You'll need to set PROJECT_ID as repository variable
+            const projectId = process.env.PROJECT_ID;
+            if (projectId) {
+              await github.graphql(`
+                mutation($projectId: ID!, $contentId: ID!) {
+                  addProjectV2ItemById(input: {
+                    projectId: $projectId
+                    contentId: $contentId
+                  }) {
+                    item {
+                      id
+                    }
+                  }
+                }
+              `, {
+                projectId: projectId,
+                contentId: context.payload.issue.node_id
+              });
+            }
