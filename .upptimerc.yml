@@ -32,8 +32,8 @@ status-website:
   name: SecondaryDAO Status
   introTitle: Live Service Monitoring
   introMessage: >
-    Freedman Capital Group • El Salvador • All production and test environments tracked here.
-    Production = naked domains; Development = test*. Checks run every 5 minutes via GitHub Actions.
+    SecondaryDAO SA de CV • Real-time monitoring of all production and development services.
+    Checks run every 5 minutes via GitHub Actions.
   theme: dark
   navbar:
     - title: Home
