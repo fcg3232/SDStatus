@@ -52,7 +52,7 @@
     "timeMonth": 0,
     "timeYear": 0,
     "dailyMinutesDown": {
-      "2025-10-24": 804,
+      "2025-10-24": 805,
       "2025-10-23": 264
     }
   },
@@ -73,7 +73,7 @@
     "timeMonth": 0,
     "timeYear": 0,
     "dailyMinutesDown": {
-      "2025-10-24": 804,
+      "2025-10-24": 805,
       "2025-10-23": 263
     }
   },
@@ -121,11 +121,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/test.app.secondarydao.com.ico",
     "slug": "app-dev",
     "status": "up",
-    "uptime": "0.02%",
-    "uptimeDay": "0.02%",
-    "uptimeWeek": "0.02%",
-    "uptimeMonth": "0.02%",
-    "uptimeYear": "0.02%",
+    "uptime": "0.03%",
+    "uptimeDay": "0.03%",
+    "uptimeWeek": "0.03%",
+    "uptimeMonth": "0.03%",
+    "uptimeYear": "0.03%",
     "time": 194,
     "timeDay": 194,
     "timeWeek": 194,
@@ -153,7 +153,7 @@
     "timeMonth": 113,
     "timeYear": 113,
     "dailyMinutesDown": {
-      "2025-10-24": 804,
+      "2025-10-24": 805,
       "2025-10-23": 263
     }
   },
@@ -163,11 +163,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/test.rent.secondarydao.com.ico",
     "slug": "rent-dev",
     "status": "up",
-    "uptime": "0.02%",
-    "uptimeDay": "0.02%",
-    "uptimeWeek": "0.02%",
-    "uptimeMonth": "0.02%",
-    "uptimeYear": "0.02%",
+    "uptime": "0.03%",
+    "uptimeDay": "0.03%",
+    "uptimeWeek": "0.03%",
+    "uptimeMonth": "0.03%",
+    "uptimeYear": "0.03%",
     "time": 288,
     "timeDay": 288,
     "timeWeek": 288,
@@ -184,11 +184,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/test.explorer.secondarydao.com.ico",
     "slug": "explorer-dev",
     "status": "up",
-    "uptime": "0.01%",
-    "uptimeDay": "0.01%",
-    "uptimeWeek": "0.01%",
-    "uptimeMonth": "0.01%",
-    "uptimeYear": "0.01%",
+    "uptime": "0.03%",
+    "uptimeDay": "0.03%",
+    "uptimeWeek": "0.03%",
+    "uptimeMonth": "0.03%",
+    "uptimeYear": "0.03%",
     "time": 1516,
     "timeDay": 1516,
     "timeWeek": 1516,
