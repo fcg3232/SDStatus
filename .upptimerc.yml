@@ -15,17 +15,17 @@ sites:
   - name: Explorer (Prod)
     url: https://explorer.secondarydao.com
 
-  # DEVELOPMENT (test* domains)
+  # DEVELOPMENT (test.* domains)
   - name: Admin (Dev)
-    url: https://testadmin.secondarydao.com
+    url: https://test.admin.secondarydao.com
   - name: App (Dev)
-    url: https://testapp.secondarydao.com
+    url: https://test.app.secondarydao.com
   - name: API (Dev)
     url: https://testapi.secondarydao.com/health
   - name: Rent (Dev)
-    url: https://testrent.secondarydao.com
+    url: https://test.rent.secondarydao.com
   - name: Explorer (Dev)
-    url: https://testexplorer.secondarydao.com
+    url: https://test.explorer.secondarydao.com
 
 status-website:
   cname: status.secondarydao.com
